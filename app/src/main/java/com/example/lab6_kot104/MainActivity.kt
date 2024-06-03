@@ -280,7 +280,7 @@ fun MovieItemb2(movie: Movie, listType: ListType) {
                     movie.duration
                 )
                 BoldValueText(
-                    label = "Khởi chiếu: ", value =
+                    label = "Khởi chiếu:  ", value =
                     movie.releaseDate
                 )
             }
