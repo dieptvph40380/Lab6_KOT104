@@ -30,7 +30,7 @@ enum class Screen(val route: String) {
 fun ScreenNavigation() {
     val navController = rememberNavController()
 
-    val movieViewModel: MainViewModel = viewModel()
+    val movieViewModel: MovieViewModel  = viewModel()
     val moviesState = movieViewModel.movies.observeAsState(initial = emptyList())
 
 
@@ -40,7 +40,7 @@ fun ScreenNavigation() {
     ) {
 
         composable(Screen.LOGIN.route) { LoginScreen(navController) }
-        composable(Screen.MOVIE_SCREEN.route) { MovieScreenb2(moviesState.value) }
+        composable(Screen.MOVIE_SCREEN.route) { MovieScreen(moviesState.value) }
         composable(Screen.SCREEN1.route) { Screen1(navController) }
         composable(Screen.SCREEN2.route) { Screen2(navController) }
         composable(Screen.SCREEN3.route) { Screen3(navController) }
