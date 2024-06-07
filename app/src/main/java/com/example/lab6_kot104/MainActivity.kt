@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
@@ -29,6 +30,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -44,6 +46,9 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import coil.compose.AsyncImage
 import com.example.lab6_kot104.ui.theme.Lab6_KOT104Theme
 
@@ -51,6 +56,10 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+            val mainViewModel:MainViewModel =viewModel()
+            val moviesState =
+                mainViewModel.movies.observeAsState(initial = emptyList())
+            MovieScreenb2(moviesState.value)
             MovieScreenb2(Movie.getSampleMovies())
         }
     }
@@ -373,5 +382,12 @@ private fun getItemSizeModifier(listType: ListType): Modifier {
             .width(130.dp)
         ListType.GRID -> Modifier
             .fillMaxWidth()
+    }
+}
+class MainViewModel : ViewModel() {
+    private val _movies = MutableLiveData<List<Movie>>()
+    val movies: LiveData<List<Movie>> = _movies
+    init {
+        _movies.value = Movie.getSampleMovies()
     }
 }
