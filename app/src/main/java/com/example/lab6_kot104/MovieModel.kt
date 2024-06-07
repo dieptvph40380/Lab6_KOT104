@@ -4,7 +4,6 @@ package com.example.lab6_kot104
 data class Movie(
     val id: String,
     val title: String,
-    val year: String,
     val duration: String,
     val releaseDate: String,
     val genre: String,
@@ -16,7 +15,6 @@ data class Movie(
             Movie(
                 id = "phim1",
                 title = "The Shawshank Redemption",
-                year = "1994",
                 duration = "2h 22m",
                 releaseDate = "October 14, 1994",
                 genre = "Drama",
@@ -26,7 +24,6 @@ data class Movie(
             Movie(
                 id = "phim2",
                 title = "The Godfather",
-                year = "1972",
                 duration = "2h 55m",
                 releaseDate = "March 24, 1972",
                 genre = "Crime, Drama",
@@ -36,7 +33,6 @@ data class Movie(
             Movie(
                 id = "phim3",
                 title = "The Dark Knight",
-                year = "2008",
                 duration = "2h 32m",
                 releaseDate = "July 18, 2008",
                 genre = "Action, Crime, Drama",
@@ -46,7 +42,6 @@ data class Movie(
             Movie(
                 id = "phim4",
                 title = "Pulp Fiction",
-                year = "1994",
                 duration = "2h 34m",
                 releaseDate = "October 14, 1994",
                 genre = "Crime, Drama",
@@ -56,7 +51,6 @@ data class Movie(
             Movie(
                 id = "phim5",
                 title = "Forrest Gump",
-                year = "1994",
                 duration = "2h 22m",
                 releaseDate = "July 6, 1994",
                 genre = "Drama, Romance",

@@ -23,6 +23,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -36,6 +37,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
 
 
@@ -44,7 +46,10 @@ enum class ListType {
 }
 
 @Composable
-fun MovieScreen(movies: List<Movie>) {
+fun MovieScreen() {
+    val movieViewModel: MovieViewModel = viewModel()
+    val moviesState = movieViewModel.movies.observeAsState(initial = emptyList())
+    val movies = moviesState.value
     var listType by remember { mutableStateOf(ListType.ROW) }
     Column (Modifier.safeDrawingPadding()) {
         Row(

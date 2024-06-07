@@ -40,7 +40,7 @@ fun ScreenNavigation() {
     ) {
 
         composable(Screen.LOGIN.route) { LoginScreen(navController) }
-        composable(Screen.MOVIE_SCREEN.route) { MovieScreen(moviesState.value) }
+        composable(Screen.MOVIE_SCREEN.route) { MovieScreen() }
         composable(Screen.SCREEN1.route) { Screen1(navController) }
         composable(Screen.SCREEN2.route) { Screen2(navController) }
         composable(Screen.SCREEN3.route) { Screen3(navController) }

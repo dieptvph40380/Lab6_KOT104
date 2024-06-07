@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 open class RetrofitService() {
     private val retrofit: Retrofit = Retrofit.Builder()
-        .baseUrl("<BASE_URL>")
+        .baseUrl("https://6662a82d62966e20ef095ca1.mockapi.io/api/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
     val movieService: MovieService by lazy {
